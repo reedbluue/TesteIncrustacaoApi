@@ -1,0 +1,29 @@
+services:
+  teste-incrustacao-api:
+    container_name: teste-incrustacao-api
+    build: .
+    environment:
+      - DB_USER=sa
+      - DB_PASSWORD=Admin!123
+      - DB_HOST=teste-incrustacao-sql-server
+      - DB_PORT=1433
+      - DB_DATABASE=teste_incrustacao_db
+    ports:
+      - "8080:8080"
+    depends_on:
+      - teste-incrustacao-sql-server
+    networks:
+      - teste-incrustacao-network
+  teste-incrustacao-sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest # SQL Server 2022
+    container_name: teste-incrustacao-sql-server
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Admin!123 # Precisa atender os requisitos da política de segurança
+      - MSSQL_PID=Express
+    networks:
+      - teste-incrustacao-network
+networks:
+  teste-incrustacao-network:
