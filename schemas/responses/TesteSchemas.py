@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Optional
 
 from pydantic import BaseModel, Field
 from models.Teste import Teste
@@ -17,7 +18,8 @@ class TesteSchema(BaseModel):
     coeficiente: str
     metodo_teste: str
     ph_solucao: str
-    data_teste: datetime
+    data_inicio: Optional[datetime]
+    data_fim: Optional[datetime]
     metodo_incrustacao_id: int | None
     metodo_incrustacao: MetodoIncrustacaoSchema | None
     solucao_limpeza_id: int | None
@@ -40,7 +42,8 @@ class TesteCreateSchema(BaseModel):
     coeficiente: str = Field(min_length=1, max_length=10)
     metodo_teste: str = Field(min_length=1, max_length=15)
     ph_solucao: str = Field(min_length=1, max_length=10)
-    data_teste: datetime
+    data_inicio: Optional[datetime]
+    data_fim: Optional[datetime]
     metodo_incrustacao_id: int | None
     solucao_limpeza_id: int | None
     metodo_precipitacao_id: int | None

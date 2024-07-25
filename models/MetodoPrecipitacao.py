@@ -8,5 +8,5 @@ class MetodoPrecipitacao(Base):
     __tablename__ = 'METODO_PRECIPITACAO'
 
     id_metodo_pr: Mapped[int] = Column('ID_METODO_PR', Integer, primary_key=True)
-    nome: Mapped[str] = Column('NOME', String(300))
-    valor: Mapped[str] = Column('VALOR', String(45))
+    nome: Mapped[str] = Column('NOME', String(300), nullable=True)
+    valor: Mapped[str] = Column('VALOR', String(45), nullable=True)

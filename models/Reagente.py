@@ -8,5 +8,5 @@ class Reagente(Base):
     __tablename__ = 'REAGENTES'
 
     id_reagente: Mapped[int] = Column('ID_REAGENTES', Integer, primary_key=True)
-    concentracao: Mapped[str] = Column('CONCENTRACAO', String(10))
-    nome: Mapped[str] = Column('NOME', String(300))
+    concentracao: Mapped[str] = Column('CONCENTRACAO', String(10), nullable=True)
+    nome: Mapped[str] = Column('NOME', String(300), nullable=True)

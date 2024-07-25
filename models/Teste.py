@@ -15,13 +15,14 @@ class Teste(Base):
     __tablename__ = 'TESTES'
 
     id_teste: Mapped[int] = Column('ID_TESTE', Integer, autoincrement=True, primary_key=True)
-    operador: Mapped[str] = Column('OPERADOR', String(30))
-    regime_escoamento: Mapped[str] = Column('REGIME_ESCOAMENTO', String(15))
-    rugosidade: Mapped[str] = Column('RUGOSIDADE', String(15))
-    coeficiente: Mapped[str] = Column('COEFICIENTE', String(10))
-    metodo_teste: Mapped[str] = Column('METODO_TESTE', String(15))
-    ph_solucao: Mapped[str] = Column('PH_SOLUCAO', String(10))
-    data_teste: Mapped[datetime] = Column('DATA_TESTE', DateTime)
+    operador: Mapped[str] = Column('OPERADOR', String(30), nullable=True)
+    regime_escoamento: Mapped[str] = Column('REGIME_ESCOAMENTO', String(15), nullable=True)
+    rugosidade: Mapped[str] = Column('RUGOSIDADE', String(15), nullable=True)
+    coeficiente: Mapped[str] = Column('COEFICIENTE', String(10), nullable=True)
+    metodo_teste: Mapped[str] = Column('METODO_TESTE', String(15), nullable=True)
+    ph_solucao: Mapped[str] = Column('PH_SOLUCAO', String(10), nullable=True)
+    data_inicio: Mapped[datetime] = Column('DATA_INICIO', DateTime, nullable=True)
+    data_fim: Mapped[datetime] = Column('DATA_FIM', DateTime, nullable=True)
     metodo_incrustacao_id: Mapped[int] = Column('ID_METODO_IN', Integer,
                                                 ForeignKey('METODO_INCRUSTACAO.ID_METODO_IN'),
                                                 nullable=False)
