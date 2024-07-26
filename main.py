@@ -16,14 +16,9 @@ from models import AnaliseMev, FerramentaUs, Medida, MetodoIncrustacao, MetodoPr
 Base.metadata.create_all(engine)
 
 app = FastAPI()
+origins = ["*",'http://localhost:5173/']
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+
 
 app.include_router(analise_mev_router)
 app.include_router(ferramenta_us_router)
@@ -34,3 +29,11 @@ app.include_router(reagente_router)
 app.include_router(solucao_incrustante_router)
 app.include_router(teste_router)
 app.include_router(medida_router)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)

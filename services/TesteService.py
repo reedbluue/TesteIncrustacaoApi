@@ -61,9 +61,9 @@ class TesteService:
             self.metodo_precipitacao_service.get_metodo_precipitacao_by_id(
                 teste_create.metodo_precipitacao_id)
 
-        if teste_create.ferramentas_us_id is not None:
+        if teste_create.ferramenta_us_id is not None:
             self.ferramentas_us_service.get_ferramenta_us_by_id(
-                teste_create.ferramentas_us_id)
+                teste_create.ferramenta_us_id)
 
         entity = teste_create.to_entity()
         self.db.add(entity)
@@ -100,7 +100,8 @@ class TesteService:
         entity.coeficiente = teste_update.coeficiente
         entity.metodo_teste = teste_update.metodo_teste
         entity.ph_solucao = teste_update.ph_solucao
-        entity.data_teste = teste_update.data_teste
+        entity.data_inicio = teste_update.data_inicio
+        entity.data_fim = teste_update.data_fim
 
         entity.solucao_incrustante_id = teste_update.solucao_incrustante_id
         entity.solucao_limpeza_id = teste_update.solucao_limpeza_id
