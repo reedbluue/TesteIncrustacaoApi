@@ -1,7 +1,6 @@
 import { LateralMenu } from '../Components/LateralMenu'
 import { PageModel } from '../Components/PageModel'
 import UfbaLogo from '../assets/UfbaLogo.png'
-import { Link } from 'react-router-dom'
 export const HomePage = () => {
 
     return (
