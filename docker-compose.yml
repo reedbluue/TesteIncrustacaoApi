@@ -36,6 +36,10 @@ services:
       - MSSQL_PID=Express
     networks:
       - teste-incrustacao-network
+    volumes:
+      - ./teste-incrustacao-sql-server/data:/var/opt/mssql/data
+      - ./teste-incrustacao-sql-server/log:/var/opt/mssql/log
+      - ./teste-incrustacao-sql-server/secrets:/var/opt/mssql/secrets
     restart: unless-stopped
 networks:
   teste-incrustacao-network:
